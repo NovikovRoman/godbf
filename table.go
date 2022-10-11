@@ -70,7 +70,8 @@ type encodingSupport struct {
 	encoder *encoding.Encoder
 }
 
-func (es *encodingSupport) UseEncoding(enc encoding.Encoding) {
+// useEncoding setsets encoding
+func (es *encodingSupport) useEncoding(enc encoding.Encoding) {
 	if enc != nil {
 		es.encoder = enc.NewEncoder()
 		es.decoder = enc.NewDecoder()
@@ -489,6 +490,7 @@ func (dt *DbfTable) GetRowAsSlice(row int) []string {
 	return s
 }
 
+// encodeString encodes the string if the encoder exists
 func (dt *DbfTable) encodeString(s string) (string, error) {
 	if dt.encoder == nil {
 		return s, nil
@@ -496,6 +498,7 @@ func (dt *DbfTable) encodeString(s string) (string, error) {
 	return dt.encoder.String(s)
 }
 
+// decodeString decodes the string if the decoder exists
 func (dt *DbfTable) decodeString(s string) (string, error) {
 	if dt.decoder == nil {
 		return s, nil
@@ -503,6 +506,7 @@ func (dt *DbfTable) decodeString(s string) (string, error) {
 	return dt.decoder.String(s)
 }
 
+// decodeBytes decodes the bytes if the decoder exists
 func (dt *DbfTable) decodeBytes(b []byte) ([]byte, error) {
 	if dt.decoder == nil {
 		return b, nil

@@ -1,4 +1,6 @@
 # godbf
+[![GoDoc](https://godoc.org/github.com/NovikovRoman/godbf?status.svg)](https://godoc.org/github.com/NovikovRoman/godbf)
+[![Go Report Card](https://goreportcard.com/badge/github.com/NovikovRoman/godbf)](https://goreportcard.com/report/github.com/NovikovRoman/godbf)
 [![Build Status](https://travis-ci.com/NovikovRoman/godbf.svg?branch=master)](https://travis-ci.com/NovikovRoman/godbf)
 
 > This fork from [LindsayBradford/go-dbf](https://github.com/LindsayBradford/go-dbf) has been heavily refactored and changed.

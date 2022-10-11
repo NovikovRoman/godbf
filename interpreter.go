@@ -10,7 +10,7 @@ import (
 // NewFromByteArray creates a DbfTable, reading it from a raw byte array, expecting the supplied encoding.
 func NewFromByteArray(data []byte, enc encoding.Encoding) (table *DbfTable, err error) {
 	table = new(DbfTable)
-	table.UseEncoding(enc)
+	table.useEncoding(enc)
 	if err = unpackHeader(data, table); err != nil {
 		return
 	}
@@ -107,7 +107,7 @@ func New(enc encoding.Encoding) (table *DbfTable) {
 	dt.lengthOfEachRecord = 0
 	dt.fieldTerminator = 0x0D
 
-	dt.UseEncoding(enc)
+	dt.useEncoding(enc)
 	dt.createdFromScratch = true
 	// create fieldMap to translate field name to index
 	dt.fieldMap = make(map[string]int)

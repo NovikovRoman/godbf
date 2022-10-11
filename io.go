@@ -16,6 +16,7 @@ func NewFromFile(fileName string, enc encoding.Encoding) (table *DbfTable, err e
 	return NewFromByteArray(data, enc)
 }
 
+// Save saves the supplied DbfTable to a file of the specified filename
 func (dt *DbfTable) Save(filename string, fileMode fs.FileMode) error {
 	return ioutil.WriteFile(filename, dt.dataStore, fileMode)
 }

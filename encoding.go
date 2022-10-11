@@ -6,6 +6,7 @@ import (
 	"golang.org/x/text/encoding"
 )
 
+// codePageID returns the correspondence between the encoder and the code page identifier of the file.
 func codePageID(enc encoding.Encoding) byte {
 	const defCodePageID = 0x57 // ANSI
 	if enc == nil {
