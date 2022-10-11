@@ -1,7 +1,6 @@
 package godbf
 
 import (
-	"io/fs"
 	"io/ioutil"
 	"os"
 	"path/filepath"
@@ -76,7 +75,7 @@ func TestSaveToFile_FromNew(t *testing.T) {
 	require.Equal(t, table.LastUpdated(), sampleTime)
 
 	tempFilename := filepath.Join("testdata", "tempSavedTable.dbf")
-	err := table.Save(tempFilename, fs.ModePerm)
+	err := table.Save(tempFilename, os.ModePerm)
 	require.Nil(t, err)
 
 	table, err = NewFromFile(tempFilename, nil)
@@ -182,7 +181,7 @@ func TestSaveToFile_CreateErrors_Errors(t *testing.T) {
 
 	tableFromBytes, _ := NewFromByteArray(rawFileBytes, nil)
 	tempFilename := filepath.Join("testdata_not_exists", "tempSavedTable.dbf")
-	err = tableFromBytes.Save(tempFilename, fs.ModePerm)
+	err = tableFromBytes.Save(tempFilename, os.ModePerm)
 	require.NotNil(t, err)
 	t.Log(err)
 }

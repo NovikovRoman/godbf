@@ -1,8 +1,8 @@
 package godbf
 
 import (
-	"io/fs"
 	"io/ioutil"
+	"os"
 
 	"golang.org/x/text/encoding"
 )
@@ -17,6 +17,6 @@ func NewFromFile(fileName string, enc encoding.Encoding) (table *DbfTable, err e
 }
 
 // Save saves the supplied DbfTable to a file of the specified filename
-func (dt *DbfTable) Save(filename string, fileMode fs.FileMode) error {
+func (dt *DbfTable) Save(filename string, fileMode os.FileMode) error {
 	return ioutil.WriteFile(filename, dt.dataStore, fileMode)
 }
