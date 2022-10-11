@@ -1,5 +1,16 @@
 language: go
-sudo: required
-
 go:
-  - tip
+  - 1.18.x
+env:
+  - GO111MODULE=on
+
+sudo: false
+
+git:
+  depth: 1
+
+notifications:
+  email: true
+
+script:
+  - go test ./...
