@@ -21,6 +21,7 @@ const (
 	recordDeletionFlagIndex = 0
 	recordIsActive          = blank
 	recordIsDeleted         = 0x2A
+	endOfFileMarker         = 0x1A
 )
 
 // DbfTable is an in-memory container for dbase formatted data, and state that helps manage that data.

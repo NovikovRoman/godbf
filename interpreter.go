@@ -9,6 +9,11 @@ import (
 
 // NewFromByteArray creates a DbfTable, reading it from a raw byte array, expecting the supplied encoding.
 func NewFromByteArray(data []byte, enc encoding.Encoding) (table *DbfTable, err error) {
+	// may have 0x1A at the end
+	if data[len(data)-1] == endOfFileMarker {
+		data = data[:len(data)-1]
+	}
+
 	table = new(DbfTable)
 	table.useEncoding(enc)
 	if err = unpackHeader(data, table); err != nil {
